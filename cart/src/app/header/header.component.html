@@ -1,0 +1,33 @@
+<nav class="navbar navbar-expand-lg  bg-dark " data-bs-theme="dark">
+    <div class="container-fluid">
+      <a  class="navbar-brand" routerLink=""> <i class="fa fa-arrow-circle-down" aria-hidden="true"></i>
+        Shop<font color="orange">Me!</font></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          
+         
+        </ul>
+        <form class="d-flex" role="search" style="margin-right: 20px;">
+          <input (keyup)="search($event)" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          
+        </form>
+      </div>
+      <li class="nav-item" >
+        <button type="button" class="btn btn-outline-warning"  routerLink="wishlist">Wishlist <i class="fa-regular fa-heart"></i></button>
+      </li>
+      <!-- <div style="margin-left: 20px;">
+        <button type="button" class="btn btn-outline-info" routerLink="cart">Cart <i class="fa fa-cart-plus" aria-hidden="true"></i></button>
+      </div> -->
+      <form class="d-flex ml-3">
+        <a class="btn btn-outline-light" routerLink="cart">
+          <i class="bi-cart-fill me-1"></i>
+          Cart
+          <span class="badge bg-light text-black ms-1 rounded-pill">{{totalitem}}</span>
+        </a>  
+
+      </form>
+    </div>
+  </nav>

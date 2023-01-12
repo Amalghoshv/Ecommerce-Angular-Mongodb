@@ -1,0 +1,64 @@
+<!--When cart is Empty-->
+<ng-container *ngIf="products.length==0 ">
+    <div class="container text-center border border-dark rounded mt-4 p-5 mb-4">
+        <div>
+            <h5 style="font-family: Verdana, Geneva, Tahoma, sans-serif;font-weight: bold;">Cart</h5>
+        </div>
+        <div class="center">
+            <img height="300px" src="https://cdni.iconscout.com/illustration/premium/thumb/confusing-woman-due-to-empty-cart-4558760-3780056.png"
+                alt="img">
+            <h4>Your Cart is Empty</h4>
+            <h6>Add item to cart now</h6>
+            <button class="btn btn-primary" routerLink="">Shop Now!</button>
+        </div>
+    </div>
+</ng-container>
+
+
+<!--When cart have item-->
+<ng-container *ngIf="products.length!==0">
+    <div class="container">
+        <div class="card-table">
+            <div class="card-product">
+                <table class="border text-center table">
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Product Name</th>
+                            <th>Product Image</th>
+                            <th>Details</th>
+                            <th>Price</th>
+                            <th>Quantity</th>
+                            <th>Total</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of products">
+                            <td>{{item.id}}</td>
+                            <td>{{item.title}}</td>   
+                            <td><img style="width: 40%;" [src]="item.image" alt="product image"></td>
+                            <td style="width: 40%;">{{item.description}}</td>
+                            <td>{{item.price}}$</td>   
+                            <td>{{item.quantity}}</td>
+                            <td>{{item.total}}</td>
+                            <td>
+                                <button (click)="removeItemCart(item)" class="btn btn-danger"><i class="fa fa-trash-o" aria-hidden="true"></i>
+                                </button>
+                            </td>
+
+                        </tr>
+                        <tr>
+                            <td colspan="4"></td>
+                            <td><button (click)="removeAllItemCart()" class="btn btn-danger">
+                                Empty cart</button></td>
+                            <td><button routerLink="" class="btn btn-primary">Shop more</button></td>
+                            <td><button (click)="discountItem()" class="btn btn-success">Checkout</button></td>
+                            <td><strong>Grand Total :  {{totalPrice}} </strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</ng-container>
